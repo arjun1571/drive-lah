@@ -94,7 +94,7 @@ function App() {
   return (
     <div className="bg-gray-50 h-screen w-full">
       <NavBar />
-      <div className="max-w-6xl flex mx-auto pt-14">
+      <div className="max-w-7xl flex mx-auto pt-14">
         {/* Left side tabs */}
         <div className="w-1/6 p-4">
           {tabData.map((tab) => (
@@ -125,7 +125,7 @@ function App() {
       </div>
 
       {/* Fixed Next button container */}
-      <div className="fixed bottom-0 w-full flex justify-center bg-white py-4 border-t-2 border-gray-100 pe-20">
+      <div className="fixed bottom-0 w-full flex justify-center bg-white py-4 border-t-2 border-gray-100 ps-10">
         <div className="max-w-6xl w-full flex justify-end">
           <Button
             className="bg-yellow-600 text-white px-20 py-3 text-xl font-semibold rounded-lg"
