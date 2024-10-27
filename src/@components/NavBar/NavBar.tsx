@@ -47,8 +47,8 @@ const NavBar = () => {
 
       {/* Right section with Profile */}
 
-      <div className="md:hidden flex items-center">
-        <Icon onClick={toggleDrawer} name={"menu"} />
+      <div className="md:hidden flex items-center" onClick={toggleDrawer}>
+        <Icon name={"menu"} />
       </div>
 
       {/* Drawer for small screens */}

@@ -6,11 +6,11 @@ type Variants = "outlined" | "filled" | "round" | "sharp" | "two-tone";
 interface IconProps {
   name: string;
   variant?: Variants;
-  onClick?: (e: MouseEvent) => void;
+  // onClick?: (e: MouseEvent) => void;
   className?: string;
   id?: string;
   role?: string;
-  disabled?: boolean;
+  // disabled?: boolean;
   style?: React.CSSProperties;
   dataTestId?: string;
 }
@@ -21,8 +21,8 @@ const Icon: FC<IconProps> = ({
   className,
   id,
   role,
-  disabled,
-  onClick,
+  // disabled,
+  // onClick,
   style,
   dataTestId,
 }) => {
