@@ -73,7 +73,7 @@ const Subscription: React.FC = () => {
       <div className="p-4">
         <p className="text-gray-600 font-semibold text-xl">Select add-ons for your subscription</p>
         <div className="grid md:grid-cols-2 grid-cols-1 gap-10 mt-2">
-          <div className="md:w-1/2 order-last">
+          <div className=" md:order-none order-last">
             <Checkbox
               label="BYO secondary GPS-$5/month"
               checked={gpsChecked}
@@ -89,7 +89,7 @@ const Subscription: React.FC = () => {
               ""
             )}
           </div>
-          <div className="md:w-1/2">
+          <div className="">
             {activePlan?.title === "Good Mates" && (
               <Checkbox
                 label="Accept Terms and Conditions"
