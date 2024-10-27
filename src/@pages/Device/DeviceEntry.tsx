@@ -3,7 +3,7 @@ import FileUpload from "../../@components/Input/FileUpload";
 import Input from "../../@components/Input/Input";
 
 const DeviceEntry = ({ deviceNumber }: { deviceNumber: number }) => {
-  const [isDeviceOwned, setIsDeviceOwned] = useState(false);
+  const [isDeviceOwned, setIsDeviceOwned] = useState(true);
 
   const handleToggle = () => {
     setIsDeviceOwned(!isDeviceOwned);

@@ -1,0 +1,10 @@
+.scrollable-content {
+    overflow-y: auto;
+    scrollbar-width: none; /* Firefox */
+  }
+  
+  /* For Chrome, Safari, and Edge */
+  .scrollable-content::-webkit-scrollbar {
+    display: none;
+  }
+  

@@ -14,7 +14,7 @@ const FileUpload: React.FC<FileUploadProps> = ({ label, onChange, noMargin }) =>
       } border border-gray-300 py-14 rounded cursor-pointer text-center text-gray-500 hover:border-blue-500 transition-all duration-200 w-3/4`}
       style={{ display: "inline-block" }}
     >
-      <span className="text-sky-600 font-semibold text-xl">{label}</span>
+      <span className="text-sky-600 font-semibold text-lg underline">{label}</span>
       <input type="file" onChange={onChange} className="hidden" />
     </label>
   );

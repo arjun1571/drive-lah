@@ -129,10 +129,10 @@ function App() {
       </div>
 
       {/* Fixed Next button container */}
-      <div className="fixed bottom-0 w-full flex justify-center bg-white py-4 border-t-2 border-gray-100">
+      <div className="fixed bottom-0 w-full flex justify-center bg-white py-4 border-t-2 border-gray-100 ms-6">
         <div className="max-w-6xl w-full flex justify-end">
           <Button
-            className="bg-yellow-600 text-white px-20 py-3 text-xl font-semibold rounded-lg"
+            className="hover:bg-yellow-500 bg-yellow-300 text-white px-20 py-3 text-xl font-semibold rounded-lg"
             round="md"
             onClick={handleNextClick}
           >
