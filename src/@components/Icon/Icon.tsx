@@ -34,7 +34,7 @@ const Icon: FC<IconProps> = ({
       } select-none`}
       role={role}
       style={style}
-      onClick={(e) => onClick && onClick(e)}
+      // onClick={(e) => onClick && onClick(e)}
       data-test-id={dataTestIdStringMod(dataTestId)}
     >
       {name}

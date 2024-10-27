@@ -1,4 +1,4 @@
-import React, { ChangeEvent, KeyboardEvent, MouseEvent, useEffect, useRef, useState } from "react";
+import React, { ChangeEvent, MouseEvent, useRef, useState } from "react";
 import { dataTestIdentifier, generateId } from "../../utils";
 
 type Type = "text" | "textarea" | "email" | "password" | "number" | "phone";
@@ -12,7 +12,6 @@ interface IInputProps {
   onBlur?: Function;
   onClick?: Function;
   onFocus?: Function;
-  onKeyPress?: Function;
   type?: Type;
   bgColor?: BGColor;
   variant?: Variant;
@@ -51,7 +50,6 @@ const Input: React.FC<IInputProps> = ({
   onBlur,
   onClick,
   onFocus,
-  onKeyPress,
   type = "text",
   name,
   iconLeft,
@@ -117,12 +115,12 @@ const Input: React.FC<IInputProps> = ({
 
   const myRef: any = useRef(null);
 
-  useEffect(() => {
-    if (registerProperty?.name) {
-      const inputValue = document.getElementById(registerProperty.name)?.value;
-      setInputValue(inputValue);
-    }
-  }, [registerProperty]);
+  // useEffect(() => {
+  //   if (registerProperty?.name) {
+  //     const inputValue = document.getElementById(registerProperty.name)?.value;
+  //     setInputValue(inputValue);
+  //   }
+  // }, [registerProperty]);
 
   return (
     <div
@@ -176,7 +174,7 @@ const Input: React.FC<IInputProps> = ({
             onFocus={(e: ChangeEvent<HTMLInputElement>) => handleFocus(e)}
             onBlur={(e: ChangeEvent<HTMLInputElement>) => handleBlur(e)}
             onChange={(e: ChangeEvent<HTMLInputElement>) => handleChange(e)}
-            onKeyPress={(e: KeyboardEvent<HTMLTextAreaElement>) => onKeyPress && onKeyPress(e)}
+            // onKeyPress={(e: KeyboardEvent<HTMLTextAreaElement>) => onKeyPress && onKeyPress(e)}
             onWheel={handleWheel}
           />
         )}
@@ -224,7 +222,7 @@ const Input: React.FC<IInputProps> = ({
             onFocus={(e: ChangeEvent<HTMLTextAreaElement>) => handleFocus(e)}
             onBlur={(e: ChangeEvent<HTMLTextAreaElement>) => handleBlur(e)}
             onChange={(e: ChangeEvent<HTMLTextAreaElement>) => handleChange(e)}
-            onKeyPress={(e: KeyboardEvent<HTMLTextAreaElement>) => onKeyPress && onKeyPress(e)}
+            // onKeyPress={(e: KeyboardEvent<HTMLTextAreaElement>) => onKeyPress && onKeyPress(e)}
           ></textarea>
         )}
 

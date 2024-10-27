@@ -111,7 +111,7 @@ function App() {
       <div className="flex-grow overflow-y-auto scrollable-content md:p-0 p-3">
         <div className="md:flex max-w-7xl mx-auto md:pt-14 md:pb-32 pb-14">
           {/* Left side tabs - conditional rendering for select on small screens */}
-          <div className="md:w-1/6 md:p-4 p-2">
+          <div className="md:w-1/6 md:p-4">
             {/* Display buttons on medium and larger screens */}
             <div className="hidden md:block">
               {tabData.map((tab) => (

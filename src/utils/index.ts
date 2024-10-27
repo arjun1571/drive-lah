@@ -1,4 +1,4 @@
-export const dataTestIdStringMod = (str: string = "", splitSymbl?: string = " ", joinSymbl?: string = "-") => {
+export const dataTestIdStringMod = (str: string = "") => {
   return str?.replace(/[_ ]/g, "-").toLowerCase();
 };
 
