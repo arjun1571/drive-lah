@@ -19,7 +19,7 @@ const DeviceEntry = ({ deviceNumber }: { deviceNumber: number }) => {
   return (
     <div className="p-4">
       <h4 className="text-md font-semibold text-gray-500">Device {deviceNumber}</h4>
-      <div className="flex justify-between w-full gap-10 mt-3">
+      <div className="md:flex justify-between w-full gap-10 mt-3">
         <div className="md:w-1/2">
           <Input label="Device Type" placeholder="Enter device type" type="text" noMargin />
           {isDeviceOwned && (
@@ -28,10 +28,10 @@ const DeviceEntry = ({ deviceNumber }: { deviceNumber: number }) => {
         </div>
         <div className="md:w-1/2">
           <div className="flex items-center justify-between">
-            <h6 className="text-gray-500 text-md font-semibold">Bringing your own device?</h6>
+            <h6 className="text-gray-500 text-md font-semibold md:mt-0 mt-3">Bringing your own device?</h6>
             <div
               onClick={handleToggle}
-              className={`ml-4 w-12 h-6 flex items-center rounded-full p-1 cursor-pointer ${
+              className={`ml-4 w-12 h-6 flex items-center rounded-full p-1 cursor-pointer md:mt-0 mt-3 ${
                 isDeviceOwned ? "bg-sky-500" : "bg-gray-300"
               }`}
             >

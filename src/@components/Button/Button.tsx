@@ -57,9 +57,9 @@ const Button: FC<BtnProps> = ({
 
   return (
     <button
-      className={`flex items-center outline-none ${width ? "w-" + width : ""} ${
-        height ? "h-" + height : ""
-      }  font-inter btn-${size} ${variant} ${disable ? "disable" : color} ${rounded}  ${className ? className : ""}`}
+      className={`   ${width ? "w-" + width : ""} ${height ? "h-" + height : ""}  font-inter btn-${size} ${variant} ${
+        disable ? "disable" : color
+      } ${rounded}  ${className ? className : ""}`}
       onMouseEnter={(e) => onMouseEnter && onMouseEnter(e)}
       onMouseLeave={(e) => onMouseLeave && onMouseLeave(e)}
       data-test-id={dataTestId ? dataTestId : typeof children == "string" ? dataTestIdStringMod(children) + "-btn" : ""}

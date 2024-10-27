@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import SubscriptionCard from "../../@components/SubscriptionCard/SubscriptionCard";
+import Checkbox from "../../@components/CheckBox/CheckBox";
+import CheckoutForm from "./CheckoutForm";
 
 interface Plan {
   id: number;
@@ -35,9 +37,19 @@ const plans: Plan[] = [
 
 const Subscription: React.FC = () => {
   const [activePlan, setActivePlan] = useState<Plan | null>(plans[0]);
+  const [gpsChecked, setGpsChecked] = useState(false);
+  const [termsChecked, setTermsChecked] = useState(false);
 
   const selectPlan = (plan: Plan) => {
     setActivePlan(activePlan?.id === plan.id ? null : plan);
+  };
+
+  const handleGpsCheckboxChange = (checked: boolean) => {
+    setGpsChecked(checked);
+  };
+
+  const handleTermsCheckboxChange = (checked: boolean) => {
+    setTermsChecked(checked);
   };
 
   return (
@@ -48,30 +60,61 @@ const Subscription: React.FC = () => {
       </div>
       <p className="border-b-2 border-gray-50 w-full"></p>
 
-      <div className=" p-4">
+      <div className="p-4">
         <p className="text-gray-600 font-semibold">Select your plan</p>
-
         <div className="grid grid-cols-1 gap-4 md:grid-cols-3 mt-3">
           {plans.map((plan) => (
             <SubscriptionCard key={plan.id} plan={plan} activePlan={activePlan} selectPlan={selectPlan} />
           ))}
         </div>
+      </div>
+      <p className="border-b-2 border-gray-50 w-full mt-2"></p>
 
-        {/* {activePlan && (
-          <div className="mt-6 p-4 border rounded-md shadow-md bg-gray-50">
-            <h3 className="text-xl font-semibold text-[#009999]">{activePlan.title} Details</h3>
+      <div className="p-4">
+        <p className="text-gray-600 font-semibold text-xl">Select add-ons for your subscription</p>
+        <div className="grid md:grid-cols-2 grid-cols-1 gap-10 mt-2">
+          <div className="md:w-1/2 order-last">
+            <Checkbox
+              label="BYO secondary GPS-$5/month"
+              checked={gpsChecked}
+              onChange={handleGpsCheckboxChange}
+              disabled={false}
+            />
+            {activePlan?.title === "Good Mates" || activePlan?.title === "Pro Mates" ? (
+              <>
+                <p className="text-md text-gray-500 mt-3 mb-2 font-semibold">Add Card Details</p>
+                <CheckoutForm />
+              </>
+            ) : (
+              ""
+            )}
           </div>
-        )} */}
+          <div className="md:w-1/2">
+            {activePlan?.title === "Good Mates" && (
+              <Checkbox
+                label="Accept Terms and Conditions"
+                checked={termsChecked}
+                onChange={handleTermsCheckboxChange}
+                disabled={false}
+              />
+            )}
+            {activePlan?.title === "Pro Mates" && (
+              <Checkbox
+                label="Between trip insurance (coming soon)"
+                checked={termsChecked}
+                onChange={handleTermsCheckboxChange}
+                disabled={false}
+              />
+            )}
+          </div>
+        </div>
       </div>
       <p className="border-b-2 border-gray-50 w-full mt-2"></p>
+
       <div className="p-4">
-        <p className=" text-gray-600 font-semibold  text-xl">Select add-one for your subscription</p>
-      </div>
-      <p className="border-b-2 border-gray-50 w-full mt-2"></p>
-      <div className="p-4">
-        <p className=" text-gray-600 font-semibold  text-md">
+        <p className="text-gray-600 font-semibold text-md">
           Learn more about the plans here -{" "}
-          <span className="text-sky-600 text-xl cursor-pointer">What is the right plan for me ?</span>
+          <span className="text-sky-600 text-xl cursor-pointer">What is the right plan for me?</span>
         </p>
         <p className="mt-2">
           You will be able to switch between plans easily later as well. Speak to our host success team if you need any

@@ -13,6 +13,8 @@ import Subscription from "./@pages/Subscription/Subscription";
 import Device from "./@pages/Device/Device";
 import Picture from "./@pages/Picture/Picture";
 import Button from "./@components/Button/Button";
+import { Elements } from "@stripe/react-stripe-js";
+import { loadStripe } from "@stripe/stripe-js";
 
 function App() {
   const tabData = [
@@ -61,6 +63,7 @@ function App() {
       handleTabClick(nextTab);
     }
   };
+  const stripePromise = loadStripe("your-publishable-key");
 
   const renderContent = () => {
     switch (activeTab) {
@@ -81,7 +84,11 @@ function App() {
       case "Insurance":
         return <Insurance />;
       case "Subscription":
-        return <Subscription />;
+        return (
+          <Elements stripe={stripePromise}>
+            <Subscription />
+          </Elements>
+        );
       case "Device":
         return <Device />;
       default:
@@ -90,17 +97,17 @@ function App() {
   };
 
   return (
-    <div className="h-screen flex flex-col bg-gray-50">
+    <div className="h-screen flex flex-col bg-gray-50 ">
       {/* Sticky Navbar */}
       <div className="sticky top-0 z-10">
         <NavBar />
       </div>
 
       {/* Scrollable Content Area */}
-      <div className="flex-grow overflow-y-auto scrollable-content">
-        <div className="flex max-w-7xl mx-auto pt-14 pb-32">
+      <div className="flex-grow overflow-y-auto scrollable-content md:p-0 p-3">
+        <div className="md:flex max-w-7xl mx-auto md:pt-14 md:pb-32 pb-14">
           {/* Left side tabs */}
-          <div className="w-1/6 p-4">
+          <div className="md:w-1/6 md:p-4 p-2">
             {tabData.map((tab) => (
               <button
                 key={tab}
@@ -124,15 +131,15 @@ function App() {
           </div>
 
           {/* Right side content */}
-          <div className="w-4/5 bg-white border rounded-lg p-4">{renderContent()}</div>
+          <div className="md:w-4/5 bg-white border rounded-lg md:p-4 p-2">{renderContent()}</div>
         </div>
       </div>
 
       {/* Fixed Next button container */}
-      <div className="fixed bottom-0 w-full flex justify-center bg-white py-4 border-t-2 border-gray-100 ms-6">
-        <div className="max-w-6xl w-full flex justify-end">
+      <div className="md:fixed bottom-0 w-full md:flex md:justify-center bg-white py-4 border-t-2 border-gray-100 md:ms-6">
+        <div className="max-w-6xl w-full flex md:justify-end px-3">
           <Button
-            className="hover:bg-yellow-500 bg-yellow-300 text-white px-20 py-3 text-xl font-semibold rounded-lg"
+            className="hover:bg-yellow-500 bg-yellow-300 text-white md:px-20  md:w-auto w-full py-3 text-xl font-semibold rounded-lg"
             round="md"
             onClick={handleNextClick}
           >

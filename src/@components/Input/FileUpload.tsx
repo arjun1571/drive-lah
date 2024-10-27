@@ -11,7 +11,7 @@ const FileUpload: React.FC<FileUploadProps> = ({ label, onChange, noMargin }) =>
     <label
       className={`${
         noMargin ? "" : "mt-2"
-      } border border-gray-300 py-14 rounded cursor-pointer text-center text-gray-500 hover:border-blue-500 transition-all duration-200 w-3/4`}
+      } border border-gray-300 py-14 rounded cursor-pointer text-center text-gray-500 hover:border-blue-500 transition-all duration-200 md:w-3/4 w-full`}
       style={{ display: "inline-block" }}
     >
       <span className="text-sky-600 font-semibold text-lg underline">{label}</span>
