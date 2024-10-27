@@ -71,7 +71,7 @@ const Subscription: React.FC = () => {
       <div className="p-4">
         <p className=" text-gray-600 font-semibold  text-md">
           Learn more about the plans here -{" "}
-          <span className="text-sky-600 text-xl">What is the right plan for me ?</span>
+          <span className="text-sky-600 text-xl cursor-pointer">What is the right plan for me ?</span>
         </p>
         <p className="mt-2">
           You will be able to switch between plans easily later as well. Speak to our host success team if you need any

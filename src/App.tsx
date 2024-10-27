@@ -35,7 +35,6 @@ function App() {
     </div>
   );
 
-  // State to manage the active tab
   const [activeTab, setActiveTab] = useState<string>("Subscription");
   const [completedTabs, setCompletedTabs] = useState<string[]>([
     "Location",
@@ -55,7 +54,6 @@ function App() {
     }
   };
 
-  // Function to handle the "Next" button click
   const handleNextClick = () => {
     const currentIndex = tabData.indexOf(activeTab);
     if (currentIndex >= 0 && currentIndex < tabData.length - 1) {
@@ -92,40 +90,46 @@ function App() {
   };
 
   return (
-    <div className="bg-gray-50 h-screen w-full">
-      <NavBar />
-      <div className="max-w-7xl flex mx-auto pt-14">
-        {/* Left side tabs */}
-        <div className="w-1/6 p-4">
-          {tabData.map((tab) => (
-            <button
-              key={tab}
-              onClick={() => handleTabClick(tab)}
-              className={`flex items-center justify-between w-full p-2 mb-2 font-bold cursor-pointer ${
-                activeTab === tab
-                  ? " border-l-4 p-2 border-[#009999] text-[#009999] font-bold"
-                  : " border-l-4 border-gray-50"
-              } ${
-                completedTabs.includes(tab)
-                  ? "text-[#009999]"
-                  : !completedTabs.includes(tab) && activeTab === tab
-                  ? "text-[#009999]"
-                  : "text-gray-400"
-              }`}
-            >
-              <span>{tab}</span>
-              {/* Show checkmark if the tab is completed */}
-              {completedTabs.includes(tab) && <Icon className="text-[#009999]" name="check_circle" />}
-            </button>
-          ))}
-        </div>
+    <div className="h-screen flex flex-col bg-gray-50">
+      {/* Sticky Navbar */}
+      <div className="sticky top-0 z-10">
+        <NavBar />
+      </div>
 
-        {/* Right side content */}
-        <div className="w-4/5 bg-white border rounded-lg">{renderContent()}</div>
+      {/* Scrollable Content Area */}
+      <div className="flex-grow overflow-y-auto scrollable-content">
+        <div className="flex max-w-7xl mx-auto pt-14 pb-32">
+          {/* Left side tabs */}
+          <div className="w-1/6 p-4">
+            {tabData.map((tab) => (
+              <button
+                key={tab}
+                onClick={() => handleTabClick(tab)}
+                className={`flex items-center justify-between w-full p-2 mb-2 font-bold cursor-pointer ${
+                  activeTab === tab
+                    ? " border-l-4 p-2 border-[#009999] text-[#009999] font-bold"
+                    : " border-l-4 border-gray-50"
+                } ${
+                  completedTabs.includes(tab)
+                    ? "text-[#009999]"
+                    : !completedTabs.includes(tab) && activeTab === tab
+                    ? "text-[#009999]"
+                    : "text-gray-400"
+                }`}
+              >
+                <span>{tab}</span>
+                {completedTabs.includes(tab) && <Icon className="text-[#009999]" name="check_circle" />}
+              </button>
+            ))}
+          </div>
+
+          {/* Right side content */}
+          <div className="w-4/5 bg-white border rounded-lg p-4">{renderContent()}</div>
+        </div>
       </div>
 
       {/* Fixed Next button container */}
-      <div className="fixed bottom-0 w-full flex justify-center bg-white py-4 border-t-2 border-gray-100 ps-10">
+      <div className="fixed bottom-0 w-full flex justify-center bg-white py-4 border-t-2 border-gray-100">
         <div className="max-w-6xl w-full flex justify-end">
           <Button
             className="bg-yellow-600 text-white px-20 py-3 text-xl font-semibold rounded-lg"

@@ -1,17 +1,20 @@
+import DeviceEntry from "./DeviceEntry";
+
 const Device = () => {
   return (
     <div>
-      <div className="p-4 ">
-        <h1 className="text-2xl text-[#009999] font-semibold">Rules</h1>
-        <p className="mt-2">Real Rules content coming soon....</p>
-      </div>
-      <p className="border-b-2 border-gray-50 w-full"></p>
       <div className="p-4">
-        <p>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nam iusto reiciendis assumenda magnam. Eius,
-          distinctio provident? Aspernatur deleniti natus saepe.
+        <h1 className="text-2xl text-[#009999] font-semibold">Device Management</h1>
+        <p className="my-2 text-gray-500 font-semibold">
+          Add details of the device, if any already installed on your car. If none, then continue to the next step.
         </p>
       </div>
+      <p className="border-b-2 border-gray-50 w-full"></p>
+      <DeviceEntry deviceNumber={1} />
+      <p className="border-b-2 border-gray-50 w-full"></p>
+      <DeviceEntry deviceNumber={2} />
+      <p className="border-b-2 border-gray-50 w-full"></p>
+      <DeviceEntry deviceNumber={3} />
     </div>
   );
 };
